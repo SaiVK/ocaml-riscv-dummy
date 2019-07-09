@@ -4,7 +4,10 @@ maintainer: "Sai Venkata Krishnan <saiganesha5.svkv@gmail.com>"
 authors: "KC Sivaramakrishnan <kc@kcsrk.info>"
 license: "LGPL v2.1"
 homepage: "https://github.com/kayceesrk/riscv-ocaml/tree/4.07+cross"
+bug-reports: ""
+dev-repo: ""
 substs: [ "riscv.conf" ]
+depends: [ "ocaml" "ocamlfind" ]
 build: [
 	["sh" "./configure" "--target" "riscv64-unknown-linux-gnu" "-prefix" "%{prefix}%/riscv-sysroot" "-no-ocamldoc" "-no-debugger" "-target-bindir" "%{prefix}%/riscv-sysroot/bin"]
 	["sh" "./build.sh"]
