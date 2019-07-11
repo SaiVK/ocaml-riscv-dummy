@@ -17,8 +17,8 @@ build: [
 	["sh" "./build.sh"]
 ]
 install: [
-	["cp" "%{prefix}%/bin/ocamlrun" "byterun"]
 	[make "opt.opt"]
+	["cp" "%{prefix}%/bin/ocamlrun" "byterun"]
 	[make "install"]
 	["sh" "./install.sh"]
 ]
