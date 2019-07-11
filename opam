@@ -18,7 +18,7 @@ build: [
 ]
 install: [
 	["cp" "%{prefix}%/bin/ocamlrun" "byterun"]
-	#["cp" "%{prefix}%/lib/ocaml" "%{prefix}%/riscv-sysroot/lib/ocaml"]
+	[make "opt.opt"]
 	[make "install"]
 	["sh" "./install.sh"]
 ]
