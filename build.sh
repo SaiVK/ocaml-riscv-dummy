@@ -10,5 +10,6 @@
 #./configure --target riscv64-unknown-linux-gnu -prefix `pwd`/install -no-ocamldoc -no-debugger -target-bindir `pwd`/install/bin
 make -j4 world || /bin/true
 make -j4 opt
+make -j4 opt.opt
 #cp `pwd`/install/bin/ocamlrun byterun
 #make install
