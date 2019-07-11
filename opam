@@ -12,19 +12,13 @@ depends: [
 	"ocamlfind"
 	#should add gcc-toolchain-riscv 
 ]
-
 build: [
-	["sh" "./configure" "-prefix" "%{prefix}%/riscv-sysroot" "-no-ocamldoc" "-no-debugger" "-target-bindir" "%{prefix}%/riscv-sysroot/bin"]
-	[make "-j8" "world.opt"]
-	[make "install"]
-	[make "clean"]
-	["env" "PATH=$PATH:%{prefix}%/riscv-sysroot" "sh" "./configure" "--target" "riscv64-unknown-linux-gnu" "-prefix" "%{prefix}%/riscv-sysroot" "-no-ocamldoc" "-no-debugger" "-target-bindir" "%{prefix}%/riscv-sysroot/bin"]
-	[make "-j4" "world" "||" "/bin/true"]
-	[make "-j4" "opt"]
-
+	["sh" "./configure" "--target" "riscv64-unknown-linux-gnu" "-prefix" "%{prefix}%/riscv-sysroot" "-no-ocamldoc" "-no-debugger" "-target-bindir" "%{prefix}%/riscv-sysroot/bin"]
+	["sh" "./build.sh"]
 ]
 install: [
-	["cp" "%{prefix}%/riscv-sysroot/bin/ocamlrun" "byterun"]
+	["cp" "%{prefix}%/bin/ocamlrun" "byterun"]
+	#["cp" "%{prefix}%/lib/ocaml" "%{prefix}%/riscv-sysroot/lib/ocaml"]
 	[make "install"]
 	["sh" "./install.sh"]
 ]
