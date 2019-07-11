@@ -1,8 +1,8 @@
 #!/bin/sh -e
 
 PREFIX="$1"
-
-for pkg in bigarray bytes compiler-libs dynlink findlib graphics stdlib str threads unix; do
+#added seq only
+for pkg in bigarray bytes compiler-libs dynlink findlib graphics seq stdlib str threads unix; do
   cp -r "${OPAM_SWITCH_PREFIX}/lib/${pkg}" "${OPAM_SWITCH_PREFIX}/riscv-sysroot/lib/"
 done
 sed -i -e 's/unix//g' ${OPAM_SWITCH_PREFIX}/riscv-sysroot/lib/bigarray/META
