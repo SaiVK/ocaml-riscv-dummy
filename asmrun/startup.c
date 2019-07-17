@@ -46,6 +46,7 @@
 extern int caml_parser_trace;
 CAMLexport header_t caml_atom_table[256];
 char * caml_code_area_start, * caml_code_area_end;
+struct ext_table caml_code_fragments_table;
 
 /* Initialize the atom table and the static data and code area limits. */
 
@@ -163,6 +164,7 @@ value caml_startup_exn(char_os **argv)
 
 void caml_startup(char_os **argv)
 {
+  printf("%p",&caml_backtrace_active);
   value res = caml_startup_exn(argv);
   if (Is_exception_result(res))
     caml_fatal_uncaught_exception(Extract_exception(res));
